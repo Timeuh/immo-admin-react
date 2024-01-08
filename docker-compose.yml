@@ -1,0 +1,13 @@
+version: "3.8"
+name: immo-admin-react
+
+services:
+  vite:
+    image: node:20-alpine
+    user: "${UID:-1000}:${GID:-1000}"
+    volumes:
+      - ./:/app
+    ports:
+      - "${DEV_SERVER_PORT:-3000}:3000"
+    working_dir: /app
+    command: npm run dev
