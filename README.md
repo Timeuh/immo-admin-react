@@ -1,8 +1,26 @@
-# React + Vite
+# Immo Admin en React
+Ce site est le site administration de Immo.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Installation
+Au premier lancement du docker compose, votre conteneur manquera des node_modules.
+Pour remédier à cela, il va vous falloir installer les dépendances.
 
-Currently, two official plugins are available:
+Pour cela, on va utiliser un conteneur éphémère qui aura pour rôle d'installer les dépendances npm puis de s'autodétruire.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+docker run --rm -v $(pwd):/app -w /app node:20-alpine npm install
+```
+
+Cette commande crée un conteneur à la même version que notre service `vite` dans le `docker-compose`, à savoir la version `node:20-alpine`.
+
+Il exécute ensuite la commande `npm install` pour installer les dépendances.
+
+Enfin le conteneur se détruit.
+
+Maintenant, vous n'avez plus qu'à lancer la commande
+
+```bash
+docker-compose up -d
+```
+
+Pour exécuter le conteneur de l'application.
