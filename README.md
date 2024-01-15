@@ -24,3 +24,10 @@ docker-compose up -d
 ```
 
 Pour exécuter le conteneur de l'application.
+
+L'application est ensuite disponible à l'adresse 
+```http request
+http://localhost:3000
+```
+
+Ou bien au port que vous avez renseigné dans votre fichier `.env`.
