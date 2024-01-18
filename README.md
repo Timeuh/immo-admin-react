@@ -8,7 +8,7 @@ Pour remédier à cela, il va vous falloir installer les dépendances.
 Pour cela, on va utiliser un conteneur éphémère qui aura pour rôle d'installer les dépendances npm puis de s'autodétruire.
 
 ```bash
-docker run --rm -v .:/app -w /app node:20-alpine npm install
+ docker-compose run --rm vite npm install
 ```
 
 Cette commande crée un conteneur à la même version que notre service `vite` dans le `docker-compose`, à savoir la version `node:20-alpine`.
